@@ -1,0 +1,188 @@
+<section class="hero" id="home">
+  <!-- CRM-themed decorative shapes -->
+  <img
+    src="./assets/images/crm-connection-shape.svg"
+    alt="CRM connections"
+    class="shape shape-1 pulse-animation"
+    style="width: 150px; top: 20%; left: 5%"
+  />
+  <img
+    src="./assets/images/crm-data-shape.svg"
+    alt="CRM data nodes"
+    class="shape shape-2 rotate-animation"
+    style="width: 120px; bottom: 15%; right: 8%"
+  />
+  <img
+    src="./assets/images/crm-wave-shape.svg"
+    alt="CRM workflow"
+    class="shape shape-3 float-animation"
+  />
+
+  <div class="container">
+    <figure class="hero-banner">
+      <img
+        src="./assets/images/crm-dashboard-showcase.png"
+        alt="CRMPlus Dashboard Preview"
+        loading="lazy"
+        class="w-100 scale-animation"
+        style="
+          max-height: 500px;
+          width: auto;
+          border-radius: 16px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        "
+      />
+    </figure>
+
+    <div class="hero-content">
+      <h2 class="h1 hero-title" style="font-size: 2.8rem; line-height: 1.2">
+        <span
+          style="
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+          "
+          >CRMPlus</span
+        >
+        - Transform Customer Relationships
+      </h2>
+
+      <p class="section-text" style="font-size: 1.1rem; max-width: 500px">
+        The all-in-one platform to manage leads, automate sales, and grow your
+        business.
+        <span
+          style="
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: 600;
+            color: #4f46e5;
+          "
+          >30% faster deal closing | 40% more productivity</span
+        >
+      </p>
+
+      <div style="display: flex; gap: 15px; margin-top: 30px">
+        <button
+          class="btn-glow"
+          style="
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border: none;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+          "
+        >
+          <ion-icon
+            name="rocket-outline"
+            style="vertical-align: middle; margin-right: 8px"
+          ></ion-icon>
+          <span>Start Free Trial</span>
+        </button>
+
+        <button
+          class="btn-outline-glow"
+          style="
+            background: transparent;
+            border: 2px solid #6366f1;
+            color: #6366f1;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+          "
+        >
+          <ion-icon
+            name="play-circle-outline"
+            style="vertical-align: middle; margin-right: 8px"
+          ></ion-icon>
+          <span>Watch Demo</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animations */
+  .pulse-animation {
+    animation: pulse 4s ease infinite;
+  }
+
+  .rotate-animation {
+    animation: rotate 15s linear infinite;
+  }
+
+  .float-animation {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .scale-animation {
+    animation: scale 10s ease-in-out infinite alternate;
+  }
+
+  .btn-glow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+  }
+
+  .btn-outline-glow:hover {
+    background: rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(0.98);
+    }
+    100% {
+      transform: scale(1.02);
+    }
+  }
+
+  /* Responsive image */
+  @media (max-width: 768px) {
+    .hero-banner img {
+      max-height: 350px !important;
+    }
+  }
+</style>
