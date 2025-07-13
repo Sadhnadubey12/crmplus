@@ -61,35 +61,342 @@
               </li>
 
               <li>
-                <a href="#features" class="navbar-link" data-navbar-link
-                  >Features</a
+                <a href="#about" class="navbar-link" data-navbar-link
+                  >About CRM</a
                 >
               </li>
 
               <li>
-                <a href="#service" class="navbar-link" data-navbar-link
-                  >Service</a
+                <a href="#services" class="navbar-link" data-navbar-link
+                  >Our Service</a
                 >
               </li>
 
               <li>
-                <a href="#blog" class="navbar-link" data-navbar-link>Blog</a>
+                <a href="#pricing" class="navbar-link" data-navbar-link
+                  >Our Pricing</a
+                >
               </li>
 
               <li>
-                <a href="#newsletter" class="navbar-link" data-navbar-link
-                  >Newsletter</a
+                <a href="#contact" class="navbar-link" data-navbar-link
+                  >Contact Us</a
                 >
               </li>
             </ul>
           </div>
         </nav>
 
-        <button class="btn btn-secondary">
-          <span>Get Started</span>
-
-          <ion-icon name="chevron-forward-outline"></ion-icon>
+        <button
+          class="demo-btn"
+          onclick="openModal()"
+          style="
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+          "
+        >
+          <span>Book Demo</span>
+          <ion-icon name="calendar-outline" style="font-size: 18px"></ion-icon>
         </button>
+
+        <div
+          id="demoModal"
+          style="
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+          "
+        >
+          <div
+            style="
+              background: #fff;
+              padding: 25px;
+              border-radius: 16px;
+              max-width: 450px;
+              width: 90%;
+              position: relative;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+              transform: translateY(0);
+              transition: all 0.3s ease;
+            "
+          >
+            <button
+              onclick="closeModal()"
+              style="
+                position: absolute;
+                top: 15px;
+                right: 20px;
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                color: #64748b;
+                transition: color 0.2s;
+              "
+            >
+              &times;
+            </button>
+
+            <div style="text-align: center; margin-bottom: 20px">
+              <div
+                style="
+                  width: 50px;
+                  height: 50px;
+                  background: rgba(99, 102, 241, 0.1);
+                  border-radius: 12px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 12px;
+                "
+              >
+                <ion-icon
+                  name="chatbubbles-outline"
+                  style="font-size: 24px; color: #6366f1"
+                ></ion-icon>
+              </div>
+              <h3 style="margin: 0 0 8px; font-size: 1.3rem; color: #1e1e2f">
+                CRM Demo Request
+              </h3>
+              <p style="margin: 0; color: #64748b; font-size: 0.9rem">
+                We'll contact you shortly
+              </p>
+            </div>
+
+            <form
+              id="crmForm"
+              onsubmit="sendToWhatsApp(event)"
+              style="margin-top: 15px"
+            >
+              <div style="margin-bottom: 15px">
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Full Name"
+                  required
+                  style="
+                    width: 100%;
+                    padding: 10px 12px;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 8px;
+                    font-size: 0.95rem;
+                    transition: all 0.3s;
+                  "
+                  onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 0 3px rgba(99, 102, 241, 0.1)';"
+                  onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none';"
+                />
+              </div>
+
+              <div style="margin-bottom: 15px">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Email Address"
+                  required
+                  style="
+                    width: 100%;
+                    padding: 10px 12px;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 8px;
+                    font-size: 0.95rem;
+                    transition: all 0.3s;
+                  "
+                  onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 0 3px rgba(99, 102, 241, 0.1)';"
+                  onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none';"
+                />
+              </div>
+
+              <div style="margin-bottom: 15px">
+                <input
+                  type="text"
+                  id="company"
+                  placeholder="Company Name"
+                  required
+                  style="
+                    width: 100%;
+                    padding: 10px 12px;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 8px;
+                    font-size: 0.95rem;
+                    transition: all 0.3s;
+                  "
+                  onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 0 3px rgba(99, 102, 241, 0.1)';"
+                  onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none';"
+                />
+              </div>
+
+              <div style="margin-bottom: 20px">
+                <textarea
+                  id="message"
+                  placeholder="Your Requirements"
+                  rows="3"
+                  required
+                  style="
+                    width: 100%;
+                    padding: 10px 12px;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 8px;
+                    font-size: 0.95rem;
+                    resize: vertical;
+                    min-height: 80px;
+                    transition: all 0.3s;
+                  "
+                  onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 0 3px rgba(99, 102, 241, 0.1)';"
+                  onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none';"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                style="
+                  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                  color: white;
+                  border: none;
+                  padding: 12px;
+                  border-radius: 8px;
+                  font-weight: 600;
+                  cursor: pointer;
+                  width: 100%;
+                  font-size: 0.95rem;
+                  transition: all 0.3s;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 8px;
+                "
+              >
+                <ion-icon
+                  name="logo-whatsapp"
+                  style="font-size: 18px"
+                ></ion-icon>
+                Submit via WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <script>
+          function openModal() {
+            document.getElementById("demoModal").style.display = "flex";
+            document.body.style.overflow = "hidden";
+          }
+
+          function closeModal() {
+            document.getElementById("demoModal").style.animation =
+              "fadeOut 0.3s ease-out";
+            setTimeout(() => {
+              document.getElementById("demoModal").style.display = "none";
+              document.getElementById("demoModal").style.animation =
+                "fadeIn 0.3s ease-out";
+              document.body.style.overflow = "auto";
+            }, 250);
+          }
+
+          function sendToWhatsApp(event) {
+            event.preventDefault();
+
+            // Form validation
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const company = document.getElementById("company").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !company || !message) {
+              alert("Please fill all fields");
+              return;
+            }
+
+            // Create WhatsApp message
+            const whatsappMessage = `*CRM Demo Request*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Company:* ${company}%0A*Requirements:* ${message}%0A%0AI'm interested in booking a CRM demo. Please contact me to schedule.`;
+
+            // Open WhatsApp
+            window.open(
+              `https://wa.me/918051248134?text=${whatsappMessage}`,
+              "_blank"
+            );
+
+            // Close modal
+            closeModal();
+
+            // Reset form
+            document.getElementById("crmForm").reset();
+          }
+
+          // Close modal when clicking outside
+          document
+            .getElementById("demoModal")
+            .addEventListener("click", function (e) {
+              if (e.target === this) {
+                closeModal();
+              }
+            });
+        </script>
+
+        <style>
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+
+          @keyframes fadeOut {
+            from {
+              opacity: 1;
+            }
+            to {
+              opacity: 0;
+            }
+          }
+
+          .demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+          }
+
+          #demoModal > div:hover {
+            transform: translateY(-5px);
+          }
+
+          button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+          }
+
+          button[onclick="closeModal()"]:hover {
+            color: #6366f1;
+          }
+        </style>
+
+        <script
+          type="module"
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+          nomodule
+          src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+        ></script>
       </div>
     </header>
 
@@ -100,22 +407,11 @@
       -->
 
         <section class="hero" id="home">
-          <!-- <img
-            src="./assets/images/shape1.png"
-            alt="Illustration art"
-            class="shape shape-1"
-          /> -->
-          <!-- <img
-            src="./assets/images/shape3.png"
-            alt="Illustration art"
-            class="shape shape-3"
-          /> -->
-
           <div class="container">
             <figure class="hero-banner">
               <img
-                src="./assets/images/WhatsApp Image 2025-07-13 at 2.31.48 AM.jpeg"
-                alt="CRMPlus Dashboard Interface"
+                src="./assets/images/7029632.jpg"
+                alt="crm"
                 loading="lazy"
                 class="w-100 floating-animation"
                 style="
@@ -127,89 +423,275 @@
             </figure>
 
             <div class="hero-content">
-              <h2
-                class="h1 hero-title"
-                style="font-size: 2.8rem; line-height: 1.2"
+              <div
+                style="display: flex; align-items: center; margin-bottom: 15px"
               >
-                <span
-                  style="
-                    background: linear-gradient(90deg, #6366f1, #8b5cf6);
-                    -webkit-background-clip: text;
-                    background-clip: text;
-                    color: transparent;
-                  "
-                  >CRMPlus</span
+                <h2
+                  class="h1 hero-title"
+                  style="font-size: 2.8rem; line-height: 1.2; margin: 0"
                 >
-                - Transform Customer Relationships
-              </h2>
+                  <span
+                    style="
+                      background: #242275;
+                      -webkit-background-clip: text;
+                      background-clip: text;
+                      color: transparent;
+                    "
+                    >CRMPlus - Your Growth Accelerator
+                  </span>
+                </h2>
+              </div>
 
               <p
                 class="section-text"
-                style="font-size: 1.1rem; max-width: 500px"
+                style="font-size: 1.1rem; max-width: 500px; color: #4b5563"
               >
-                The all-in-one platform to manage leads, automate sales, and
-                grow your business.
-                <span
-                  style="
-                    display: inline-block;
-                    margin-top: 8px;
+                Grow faster and work smarter with CRMPlus — your complete
+                solution for streamlined customer management.
+                <span style="font-weight: 600; color: #242275"
+                  >real results</span
+                >. Convert more leads, close deals faster, and scale
+                effortlessly.
+                <span class="growth-indicators">
+                  <span class="growth-item">
+                    <span class="arrow">↑</span>
+                    Lead Conversion
+                  </span>
+                  <span class="divider">|</span>
+                  <span class="growth-item">
+                    <span class="arrow">↑</span>
+                    Sales Growth
+                  </span>
+                  <span class="divider">|</span>
+                  <span class="growth-item">
+                    <span class="arrow">↑</span>
+                    Revenue Growth
+                  </span>
+                </span>
+
+                <style>
+                  .growth-indicators {
+                    display: inline-flex;
+                    align-items: center;
+                    margin-top: 12px;
                     font-weight: 600;
-                    color: #4f46e5;
-                  "
-                  >30% faster deal closing | 40% more productivity</span
-                >
+                    color: #242275;
+                    gap: 12px;
+                    font-size: 1.05rem;
+                  }
+
+                  .growth-item {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    transition: all 0.3s ease;
+                  }
+
+                  .arrow {
+                    color: #4caf50;
+                    font-weight: 700;
+                    font-size: 1.2em;
+                    transition: transform 0.3s ease;
+                  }
+
+                  .growth-item:hover .arrow {
+                    transform: translateY(-3px);
+                  }
+
+                  .growth-item:hover {
+                    color: #1a237e;
+                    text-shadow: 0 0 5px rgba(36, 34, 117, 0.1);
+                  }
+
+                  .divider {
+                    color: rgba(36, 34, 117, 0.3);
+                    font-weight: 300;
+                  }
+                </style>
               </p>
 
-              <div style="display: flex; gap: 15px; margin-top: 30px">
+              <div
+                style="
+                  display: flex;
+                  gap: 15px;
+                  margin-top: 30px;
+                  flex-wrap: wrap;
+                  align-items: center;
+                "
+              >
+                <!-- Call for Demo Button (Primary) -->
                 <button
-                  class="btn-glow"
+                  onclick="window.open('tel:+918051248134')"
                   style="
-                    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                    background: linear-gradient(135deg, #f97316, #ef4444);
                     border: none;
                     color: white;
                     padding: 14px 28px;
-                    border-radius: 8px;
+                    border-radius: 50px;
                     font-weight: 600;
                     font-size: 1rem;
                     cursor: pointer;
                     transition: all 0.3s;
-                    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+                    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+                    position: relative;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    z-index: 1;
                   "
+                  class="btn-call-demo"
                 >
                   <ion-icon
-                    name="rocket-outline"
-                    style="vertical-align: middle; margin-right: 8px"
+                    name="call-outline"
+                    style="
+                      vertical-align: middle;
+                      margin-right: 8px;
+                      font-size: 1.2rem;
+                      animation: pulse-icon 1.5s infinite;
+                    "
                   ></ion-icon>
-                  <span>Start Free Trial</span>
+                  <span>Call for Demo</span>
+                  <span
+                    style="
+                      position: absolute;
+                      top: -50%;
+                      left: -50%;
+                      width: 200%;
+                      height: 200%;
+                      background: linear-gradient(
+                        to right,
+                        rgba(255, 255, 255, 0) 0%,
+                        rgba(255, 255, 255, 0.3) 50%,
+                        rgba(255, 255, 255, 0) 100%
+                      );
+                      transform: rotate(30deg);
+                      transition: all 0.3s;
+                      opacity: 0;
+                    "
+                    class="btn-shine"
+                  ></span>
                 </button>
 
+                <!-- Book Demo Button with WhatsApp Integration -->
                 <button
-                  class="btn-outline-glow"
+                  onclick="window.open('https://wa.me/8051248134?text=Hi%20CRMPlus%20Team,%20I%27d%20like%20to%20book%20a%20demo', '_blank')"
                   style="
-                    background: transparent;
-                    border: 2px solid #6366f1;
-                    color: #6366f1;
+                    background: white;
+                    border: 2px solid #f97316;
+                    color: #f97316;
                     padding: 14px 28px;
-                    border-radius: 8px;
+                    border-radius: 50px;
                     font-weight: 600;
                     font-size: 1rem;
                     cursor: pointer;
                     transition: all 0.3s;
+                    position: relative;
+                    overflow: hidden;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                    display: flex;
+                    align-items: center;
                   "
+                  class="btn-whatsapp-demo"
                 >
                   <ion-icon
-                    name="play-circle-outline"
-                    style="vertical-align: middle; margin-right: 8px"
+                    name="logo-whatsapp"
+                    style="
+                      vertical-align: middle;
+                      margin-right: 8px;
+                      color: linear-gradient(135deg, #ef4444, #ef4444);
+                    "
                   ></ion-icon>
-                  <span>Watch Demo</span>
+                  <span>Book Live Demo</span>
+                  <span
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(
+                        90deg,
+                        transparent,
+                        rgba(249, 115, 22, 0.1),
+                        transparent
+                      );
+                      transform: translateX(-100%);
+                      transition: all 0.5s;
+                    "
+                    class="btn-hover-effect"
+                  ></span>
                 </button>
               </div>
             </div>
+
+            <style>
+              /* Button animations */
+              .btn-call-demo:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(239, 68, 68, 0.6);
+              }
+              .btn-call-demo:hover .btn-shine {
+                opacity: 1;
+                left: 100%;
+              }
+
+              /* WhatsApp button hover effect */
+              .btn-whatsapp-demo:hover {
+                background: rgba(249, 115, 22, 0.05);
+                box-shadow: 0 6px 12px rgba(249, 115, 22, 0.15);
+              }
+              .btn-whatsapp-demo:hover .btn-hover-effect {
+                transform: translateX(100%);
+              }
+
+              /* Calling icon animation */
+              @keyframes pulse-icon {
+                0% {
+                  transform: scale(1);
+                }
+                50% {
+                  transform: scale(1.2);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+
+              /* Ripple effect for call button */
+              .btn-call-demo::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                border-radius: 50px;
+                border: 1px solid #f97316;
+                animation: ripple 2s infinite;
+                pointer-events: none;
+                opacity: 0;
+              }
+
+              .btn-call-demo:hover::after {
+                opacity: 1;
+              }
+
+              @keyframes ripple {
+                0% {
+                  transform: scale(0.9);
+                  opacity: 0.5;
+                }
+                100% {
+                  transform: scale(1.3);
+                  opacity: 0;
+                }
+              }
+            </style>
           </div>
         </section>
 
         <style>
-          /* Simple floating animation for the CRM image */
+          /* Floating animation for the dashboard image */
           .floating-animation {
             animation: float 6s ease-in-out infinite;
           }
@@ -224,20 +706,25 @@
             }
           }
 
-          /* Highlight text effect */
-          .highlight-text {
-            color: #2563eb;
-            font-weight: 700;
+          /* Button hover effects */
+          .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(13, 148, 136, 0.6);
           }
 
-          /* Slightly enhance the button */
-          .btn-primary {
+          .btn-outline-glow:hover {
+            background: rgba(13, 148, 136, 0.1);
+            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.2);
+          }
+
+          /* Stat boxes animation */
+          .stat-box {
             transition: all 0.3s ease;
           }
 
-          .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+          .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
           }
         </style>
 
@@ -247,7 +734,7 @@
 
         <section
           class="features"
-          id="features"
+          id="about"
           style="padding: 80px 0; background: #f9fafe"
         >
           <div
@@ -347,7 +834,9 @@
                   businesses manage customer data, track interactions, and
                   improve communication, all in one place.
                 </p>
-                <button
+                <a
+                  href="https://en.wikipedia.org/wiki/Customer_relationship_management#:~:text=The%20primary%20goal%20of%20CRM,that%20a%20company%20may%20have."
+                  target="_blank"
                   class="demo-btn"
                   style="
                     background: #6366f1;
@@ -361,14 +850,15 @@
                     display: flex;
                     align-items: center;
                     gap: 8px;
+                    text-decoration: none;
                   "
                 >
                   <ion-icon
-                    name="play-circle"
+                    name="information-circle-outline"
                     style="font-size: 18px"
                   ></ion-icon>
-                  Watch Demo
-                </button>
+                  Know More
+                </a>
               </div>
 
               <!-- Card 2 -->
@@ -425,7 +915,9 @@
                   streamline operations, reduce errors, and enhance customer
                   satisfaction.
                 </p>
-                <button
+                <a
+                  href="https://en.wikipedia.org/wiki/Customer_relationship_management#Improving_CRM"
+                  target="_blank"
                   class="demo-btn"
                   style="
                     background: #10b981;
@@ -439,14 +931,15 @@
                     display: flex;
                     align-items: center;
                     gap: 8px;
+                    text-decoration: none;
                   "
                 >
                   <ion-icon
-                    name="play-circle"
+                    name="compass-outline"
                     style="font-size: 18px"
                   ></ion-icon>
-                  Watch Demo
-                </button>
+                  Explore
+                </a>
               </div>
 
               <!-- Card 3 -->
@@ -504,7 +997,8 @@
                   work by automating tasks.
                 </p>
 
-                <button
+                <a
+                  href="tel:+918051248134"
                   class="demo-btn"
                   style="
                     background: #f59e0b;
@@ -518,14 +1012,15 @@
                     display: flex;
                     align-items: center;
                     gap: 8px;
+                    text-decoration: none;
                   "
                 >
                   <ion-icon
-                    name="play-circle"
+                    name="call-outline"
                     style="font-size: 18px"
                   ></ion-icon>
-                  Watch Demo
-                </button>
+                  Book Demo
+                </a>
               </div>
 
               <!-- Card 4 -->
@@ -582,7 +1077,8 @@
                   deals, CRMPluse covers every stage of your business journey
                   providing clarity, and control to help your business grow.
                 </p>
-                <button
+                <a
+                  href="tel:+918051248134"
                   class="demo-btn"
                   style="
                     background: #ec4899;
@@ -596,14 +1092,15 @@
                     display: flex;
                     align-items: center;
                     gap: 8px;
+                    text-decoration: none;
                   "
                 >
                   <ion-icon
-                    name="play-circle"
+                    name="call-outline"
                     style="font-size: 18px"
                   ></ion-icon>
-                  Watch Demo
-                </button>
+                  Book Demo
+                </a>
               </div>
             </div>
           </div>
@@ -659,6 +1156,7 @@
       -->
 
         <section
+          id="services"
           class="crm-services"
           style="padding: 80px 0; background: #f8fafc"
         >
@@ -1057,19 +1555,55 @@
         <!-- 
         - #BLOG
       -->
-
         <section
-          class="crm-blog"
-          id="blog"
-          style="padding: 80px 0; background: #f9fafe"
+          class="pricing"
+          id="pricing"
+          style="
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f9fafe 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+          "
         >
+          <!-- Decorative elements -->
+          <div
+            style="
+              position: absolute;
+              top: -100px;
+              right: -100px;
+              width: 300px;
+              height: 300px;
+              background: rgba(99, 102, 241, 0.05);
+              border-radius: 50%;
+              z-index: 0;
+            "
+          ></div>
+          <div
+            style="
+              position: absolute;
+              bottom: -50px;
+              left: -50px;
+              width: 200px;
+              height: 200px;
+              background: rgba(236, 72, 153, 0.05);
+              border-radius: 50%;
+              z-index: 0;
+            "
+          ></div>
+
           <div
             class="container"
-            style="max-width: 1200px; margin: 0 auto; padding: 0 20px"
+            style="
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 20px;
+              position: relative;
+              z-index: 1;
+            "
           >
             <div
               class="section-header"
-              style="text-align: center; margin-bottom: 50px"
+              style="text-align: center; margin-bottom: 70px"
             >
               <p
                 class="section-subtitle"
@@ -1079,25 +1613,42 @@
                   font-weight: 600;
                   color: #6366f1;
                   background: rgba(99, 102, 241, 0.1);
-                  padding: 8px 20px;
+                  padding: 10px 25px;
                   border-radius: 50px;
-                  margin-bottom: 15px;
+                  margin-bottom: 20px;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                  animation: fadeInUp 0.8s ease-out;
                 "
               >
-                CRM Insights
+                Tailored CRM Solutions
               </p>
               <h2
                 class="section-title"
                 style="
-                  font-size: 2.2rem;
+                  font-size: 2.8rem;
                   font-weight: 700;
                   color: #1e1e2f;
-                  margin: 0 auto 20px;
-                  max-width: 700px;
+                  margin: 0 auto 25px;
+                  max-width: 800px;
                   line-height: 1.3;
+                  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+                  opacity: 0;
                 "
               >
-                Latest CRM Resources & News
+                <span style="color: #6366f1; position: relative">
+                  <span style="position: relative; z-index: 1"
+                    >Custom CRM Pricing</span
+                  >
+                  <span
+                    style="
+                      position: absolute;
+                      background: rgba(99, 102, 241, 0.2);
+                      z-index: 0;
+                    "
+                  ></span>
+                </span>
+                For Your Business Needs
               </h2>
               <p
                 style="
@@ -1105,360 +1656,819 @@
                   color: #64748b;
                   max-width: 700px;
                   margin: 0 auto;
+                  line-height: 1.7;
+                  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+                  opacity: 0;
                 "
               >
-                Discover valuable tips and trends to optimize your customer
-                relationships
+                We believe in growing together through dedicated partnership. No
+                slow responses, just committed collaboration to build the
+                perfect CRM solution for your unique requirements.
               </p>
             </div>
 
             <div
-              class="blog-grid"
+              class="pricing-grid"
               style="
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-template-columns: repeat(4, 1fr);
                 gap: 30px;
-                margin-top: 40px;
+                margin-top: 60px;
               "
             >
-              <!-- Blog Post 1 -->
-              <article
-                class="blog-card"
+              <!-- Pricing Card 1 -->
+              <div
+                class="pricing-card"
                 style="
                   background: white;
-                  border-radius: 12px;
+                  border-radius: 20px;
+                  padding: 40px;
+                  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.08);
+                  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                  position: relative;
                   overflow: hidden;
-                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-                  transition: all 0.3s ease;
+                  border: 1px solid rgba(99, 102, 241, 0.1);
+                  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+                  opacity: 0;
+                  transform: translateY(20px);
                 "
               >
-                <figure style="margin: 0; height: 200px; overflow: hidden">
-                  <a href="#" style="display: block; height: 100%">
-                    <img
-                      src="./assets/images/crm 1.jpg"
-                      alt="CRM Strategies"
-                      style="
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        transition: transform 0.5s ease;
-                      "
-                    />
-                  </a>
-                </figure>
-                <div class="blog-content" style="padding: 25px">
+                <div
+                  class="pricing-header"
+                  style="margin-bottom: 30px; position: relative"
+                >
                   <div
-                    class="blog-meta"
                     style="
+                      width: 60px;
+                      height: 60px;
+                      background: rgba(99, 102, 241, 0.1);
+                      border-radius: 16px;
                       display: flex;
                       align-items: center;
-                      gap: 15px;
-                      margin-bottom: 15px;
-                      font-size: 0.9rem;
+                      justify-content: center;
+                      margin-bottom: 25px;
                     "
                   >
-                    <span
-                      style="display: flex; align-items: center; color: #6366f1"
-                    >
-                      <ion-icon
-                        name="pricetag"
-                        style="margin-right: 5px"
-                      ></ion-icon>
-                      Strategies
-                    </span>
-                    <span
-                      style="display: flex; align-items: center; color: #64748b"
-                    >
-                      <ion-icon
-                        name="calendar"
-                        style="margin-right: 5px"
-                      ></ion-icon>
-                      May 15, 2023
-                    </span>
+                    <ion-icon
+                      name="people"
+                      style="font-size: 28px; color: #6366f1"
+                    ></ion-icon>
                   </div>
                   <h3
                     style="
-                      font-size: 1.3rem;
+                      font-size: 1.5rem;
                       font-weight: 700;
                       color: #1e1e2f;
                       margin-bottom: 15px;
-                      line-height: 1.4;
                     "
                   >
-                    <a href="#" style="color: inherit; text-decoration: none"
-                      >5 CRM Strategies That Boost Customer Retention</a
-                    >
+                    Basic CRM
                   </h3>
-                  <p
+                  <div
                     style="
-                      color: #64748b;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: flex-start;
                       margin-bottom: 20px;
-                      line-height: 1.6;
                     "
                   >
-                    Learn how top businesses use CRMPlus to improve customer
-                    loyalty and reduce churn rates.
-                  </p>
-                  <a
-                    href="#"
-                    style="
-                      display: inline-flex;
-                      align-items: center;
-                      color: #6366f1;
-                      font-weight: 600;
-                      text-decoration: none;
-                    "
-                  >
-                    Read More
-                    <ion-icon
-                      name="arrow-forward"
-                      style="margin-left: 5px"
-                    ></ion-icon>
-                  </a>
+                    <span
+                      style="
+                        font-size: 1rem;
+                        color: #64748b;
+                        margin-bottom: 5px;
+                      "
+                      >Starting at</span
+                    >
+                    <span
+                      style="
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        color: #6366f1;
+                        line-height: 1.3;
+                      "
+                      >Contact Us</span
+                    >
+                  </div>
                 </div>
-              </article>
+                <ul
+                  style="margin-bottom: 35px; padding-left: 0; list-style: none"
+                >
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Lead Management
+                  </li>
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Contact Organization
+                  </li>
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Basic Reporting
+                  </li>
+                </ul>
+                <button
+                  onclick="window.open('tel:+918051248134')"
+                  style="
+                    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                    color: white;
+                    border: none;
+                    padding: 14px 28px;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.4s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    width: 100%;
+                    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+                  "
+                >
+                  <ion-icon name="call" style="font-size: 18px"></ion-icon>
+                  Call for Details
+                </button>
+              </div>
 
-              <!-- Blog Post 2 -->
-              <article
-                class="blog-card"
+              <!-- Pricing Card 2 -->
+              <div
+                class="pricing-card"
                 style="
                   background: white;
-                  border-radius: 12px;
+                  border-radius: 20px;
+                  padding: 40px;
+                  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08);
+                  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                  position: relative;
                   overflow: hidden;
-                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-                  transition: all 0.3s ease;
+                  border: 1px solid rgba(16, 185, 129, 0.1);
+                  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+                  opacity: 0;
+                  transform: translateY(20px);
                 "
               >
-                <figure style="margin: 0; height: 200px; overflow: hidden">
-                  <a href="#" style="display: block; height: 100%">
-                    <img
-                      src="./assets/images/sales new1.jpg"
-                      alt="Sales Automation"
-                      style="
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        transition: transform 0.5s ease;
-                      "
-                    />
-                  </a>
-                </figure>
-                <div class="blog-content" style="padding: 25px">
+                <div
+                  class="pricing-header"
+                  style="margin-bottom: 30px; position: relative"
+                >
                   <div
-                    class="blog-meta"
                     style="
+                      width: 60px;
+                      height: 60px;
+                      background: rgba(16, 185, 129, 0.1);
+                      border-radius: 16px;
                       display: flex;
                       align-items: center;
-                      gap: 15px;
-                      margin-bottom: 15px;
-                      font-size: 0.9rem;
+                      justify-content: center;
+                      margin-bottom: 25px;
                     "
                   >
-                    <span
-                      style="display: flex; align-items: center; color: #10b981"
-                    >
-                      <ion-icon
-                        name="pricetag"
-                        style="margin-right: 5px"
-                      ></ion-icon>
-                      Automation
-                    </span>
-                    <span
-                      style="display: flex; align-items: center; color: #64748b"
-                    >
-                      <ion-icon
-                        name="calendar"
-                        style="margin-right: 5px"
-                      ></ion-icon>
-                      June 2, 2023
-                    </span>
+                    <ion-icon
+                      name="bar-chart"
+                      style="font-size: 28px; color: #10b981"
+                    ></ion-icon>
                   </div>
                   <h3
                     style="
-                      font-size: 1.3rem;
+                      font-size: 1.5rem;
                       font-weight: 700;
                       color: #1e1e2f;
                       margin-bottom: 15px;
-                      line-height: 1.4;
                     "
                   >
-                    <a href="#" style="color: inherit; text-decoration: none"
-                      >How to Automate Your Sales Pipeline with CRMPlus</a
-                    >
+                    Professional
                   </h3>
-                  <p
+                  <div
                     style="
-                      color: #64748b;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: flex-start;
                       margin-bottom: 20px;
-                      line-height: 1.6;
                     "
                   >
-                    Discover time-saving automation features that can increase
-                    your team's productivity by 40%.
-                  </p>
-                  <a
-                    href="#"
-                    style="
-                      display: inline-flex;
-                      align-items: center;
-                      color: #6366f1;
-                      font-weight: 600;
-                      text-decoration: none;
-                    "
-                  >
-                    Read More
-                    <ion-icon
-                      name="arrow-forward"
-                      style="margin-left: 5px"
-                    ></ion-icon>
-                  </a>
+                    <span
+                      style="
+                        font-size: 1rem;
+                        color: #64748b;
+                        margin-bottom: 5px;
+                      "
+                      >Starting at</span
+                    >
+                    <span
+                      style="
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        color: #10b981;
+                        line-height: 1.3;
+                      "
+                      >Contact Us</span
+                    >
+                  </div>
                 </div>
-              </article>
+                <ul
+                  style="margin-bottom: 35px; padding-left: 0; list-style: none"
+                >
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Everything in Basic
+                  </li>
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Sales Automation
+                  </li>
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Advanced Analytics
+                  </li>
+                </ul>
+                <button
+                  onclick="window.open('mailto:webgrosolutions@gmail.com')"
+                  style="
+                    background: linear-gradient(135deg, #10b981, #14b8a6);
+                    color: white;
+                    border: none;
+                    padding: 14px 28px;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.4s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    width: 100%;
+                    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+                  "
+                >
+                  <ion-icon name="mail" style="font-size: 18px"></ion-icon>
+                  Email for Quote
+                </button>
+              </div>
 
-              <!-- Blog Post 3 -->
-              <article
-                class="blog-card"
+              <!-- Pricing Card 3 -->
+              <div
+                class="pricing-card"
                 style="
                   background: white;
-                  border-radius: 12px;
+                  border-radius: 20px;
+                  padding: 40px;
+                  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.08);
+                  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                  position: relative;
                   overflow: hidden;
-                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-                  transition: all 0.3s ease;
+                  border: 1px solid rgba(245, 158, 11, 0.1);
+                  animation: fadeInUp 0.8s ease-out 0.5s forwards;
+                  opacity: 0;
+                  transform: translateY(20px);
                 "
               >
-                <figure style="margin: 0; height: 200px; overflow: hidden">
-                  <a href="#" style="display: block; height: 100%">
-                    <img
-                      src="./assets/images/crm new3.jpg"
-                      alt="CRM Analytics"
-                      style="
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        transition: transform 0.5s ease;
-                      "
-                    />
-                  </a>
-                </figure>
-                <div class="blog-content" style="padding: 25px">
+                <div
+                  class="pricing-header"
+                  style="margin-bottom: 30px; position: relative"
+                >
                   <div
-                    class="blog-meta"
                     style="
+                      width: 60px;
+                      height: 60px;
+                      background: rgba(245, 158, 11, 0.1);
+                      border-radius: 16px;
                       display: flex;
                       align-items: center;
-                      gap: 15px;
-                      margin-bottom: 15px;
-                      font-size: 0.9rem;
+                      justify-content: center;
+                      margin-bottom: 25px;
                     "
                   >
-                    <span
-                      style="display: flex; align-items: center; color: #f59e0b"
-                    >
-                      <ion-icon
-                        name="pricetag"
-                        style="margin-right: 5px"
-                      ></ion-icon>
-                      Analytics
-                    </span>
-                    <span
-                      style="display: flex; align-items: center; color: #64748b"
-                    >
-                      <ion-icon
-                        name="calendar"
-                        style="margin-right: 5px"
-                      ></ion-icon>
-                      June 18, 2023
-                    </span>
+                    <ion-icon
+                      name="rocket"
+                      style="font-size: 28px; color: #f59e0b"
+                    ></ion-icon>
                   </div>
                   <h3
                     style="
-                      font-size: 1.3rem;
+                      font-size: 1.5rem;
                       font-weight: 700;
                       color: #1e1e2f;
                       margin-bottom: 15px;
-                      line-height: 1.4;
                     "
                   >
-                    <a href="#" style="color: inherit; text-decoration: none"
-                      >Turning CRM Data Into Actionable Business Insights</a
-                    >
+                    Enterprise
                   </h3>
-                  <p
+                  <div
                     style="
-                      color: #64748b;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: flex-start;
                       margin-bottom: 20px;
-                      line-height: 1.6;
                     "
                   >
-                    Unlock the power of your CRM data to make smarter decisions
-                    and drive growth.
-                  </p>
-                  <a
-                    href="#"
-                    style="
-                      display: inline-flex;
-                      align-items: center;
-                      color: #6366f1;
-                      font-weight: 600;
-                      text-decoration: none;
-                    "
-                  >
-                    Read More
-                    <ion-icon
-                      name="arrow-forward"
-                      style="margin-left: 5px"
-                    ></ion-icon>
-                  </a>
+                    <span
+                      style="
+                        font-size: 1rem;
+                        color: #64748b;
+                        margin-bottom: 5px;
+                      "
+                      >Starting at</span
+                    >
+                    <span
+                      style="
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        color: #f59e0b;
+                        line-height: 1.3;
+                      "
+                      >Contact Us</span
+                    >
+                  </div>
                 </div>
-              </article>
+                <ul
+                  style="margin-bottom: 35px; padding-left: 0; list-style: none"
+                >
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Everything in Professional
+                  </li>
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Custom Workflows
+                  </li>
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Dedicated Support
+                  </li>
+                </ul>
+                <button
+                  onclick="window.open('https://wa.me/8051248134', '_blank')"
+                  style="
+                    background: linear-gradient(135deg, #f59e0b, #f97316);
+                    color: white;
+                    border: none;
+                    padding: 14px 28px;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.4s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    width: 100%;
+                    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+                  "
+                >
+                  <ion-icon
+                    name="logo-whatsapp"
+                    style="font-size: 18px"
+                  ></ion-icon>
+                  WhatsApp Us
+                </button>
+              </div>
+
+              <!-- Pricing Card 4 -->
+              <div
+                class="pricing-card"
+                style="
+                  background: white;
+                  border-radius: 20px;
+                  padding: 40px;
+                  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.08);
+                  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                  position: relative;
+                  overflow: hidden;
+                  border: 1px solid rgba(236, 72, 153, 0.1);
+                  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+                  opacity: 0;
+                  transform: translateY(20px);
+                "
+              >
+                <div
+                  class="pricing-header"
+                  style="margin-bottom: 30px; position: relative"
+                >
+                  <div
+                    style="
+                      width: 60px;
+                      height: 60px;
+                      background: rgba(236, 72, 153, 0.1);
+                      border-radius: 16px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-bottom: 25px;
+                    "
+                  >
+                    <ion-icon
+                      name="construct"
+                      style="font-size: 28px; color: #ec4899"
+                    ></ion-icon>
+                  </div>
+                  <h3
+                    style="
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      color: #1e1e2f;
+                      margin-bottom: 15px;
+                    "
+                  >
+                    Custom Solution
+                  </h3>
+                  <div
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      align-items: flex-start;
+                      margin-bottom: 20px;
+                    "
+                  >
+                    <span
+                      style="
+                        font-size: 1rem;
+                        color: #64748b;
+                        margin-bottom: 5px;
+                      "
+                      >Fully</span
+                    >
+                    <span
+                      style="
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        color: #ec4899;
+                        line-height: 1.3;
+                      "
+                      >Customized</span
+                    >
+                  </div>
+                </div>
+                <ul
+                  style="margin-bottom: 35px; padding-left: 0; list-style: none"
+                >
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Fully Custom CRM
+                  </li>
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Dedicated Development
+                  </li>
+                  <li
+                    style="
+                      padding: 8px 0;
+                      color: #555e6e;
+                      position: relative;
+                      padding-left: 30px;
+                    "
+                  >
+                    <ion-icon
+                      name="checkmark-circle"
+                      style="
+                        color: #10b981;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                      "
+                    ></ion-icon>
+                    Priority 24/7 Support
+                  </li>
+                </ul>
+                <button
+                  onclick="window.location.href='#contact'"
+                  style="
+                    background: linear-gradient(135deg, #ec4899, #d946ef);
+                    color: white;
+                    border: none;
+                    padding: 14px 28px;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.4s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    width: 100%;
+                    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+                  "
+                >
+                  <ion-icon name="calendar" style="font-size: 18px"></ion-icon>
+                  Book Demo
+                </button>
+              </div>
             </div>
 
-            <div style="text-align: center; margin-top: 50px">
-              <a
-                href="#"
+            <div
+              class="pricing-cta"
+              style="
+                text-align: center;
+                margin-top: 70px;
+                animation: fadeInUp 0.8s ease-out 0.7s forwards;
+                opacity: 0;
+              "
+            >
+              <h3
                 style="
-                  display: inline-flex;
-                  align-items: center;
-                  background: #6366f1;
-                  color: white;
-                  padding: 12px 24px;
-                  border-radius: 8px;
+                  font-size: 1.5rem;
                   font-weight: 600;
-                  text-decoration: none;
-                  transition: all 0.3s ease;
+                  color: #1e1e2f;
+                  margin-bottom: 25px;
                 "
               >
-                View All Resources
-                <ion-icon name="newspaper" style="margin-left: 8px"></ion-icon>
-              </a>
+                Our Commitment to Growth
+              </h3>
+              <p
+                style="
+                  font-size: 1.1rem;
+                  color: #64748b;
+                  max-width: 800px;
+                  margin: 0 auto 30px;
+                  line-height: 1.7;
+                "
+              >
+                We don't believe in slow responses or bad service. Our team is
+                committed to working <br />
+                <strong style="color: #6366f1">hand-in-hand with you</strong> to
+                build the perfect CRM solution that grows your Business.
+              </p>
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  gap: 20px;
+                  flex-wrap: wrap;
+                "
+              >
+                <button
+                  onclick="window.open('tel:+918051248134')"
+                  style="
+                    background: white;
+                    color: #6366f1;
+                    border: 2px solid #6366f1;
+                    padding: 14px 28px;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.1);
+                  "
+                >
+                  <ion-icon name="call" style="font-size: 20px"></ion-icon>
+                  <span style="font-size: 1.1rem">+91 8051248134</span>
+                </button>
+                <button
+                  onclick="window.open('mailto:webgrosolutions@gmail.com')"
+                  style="
+                    background: white;
+                    color: #6366f1;
+                    border: 2px solid #6366f1;
+                    padding: 14px 28px;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.1);
+                  "
+                >
+                  <ion-icon name="mail" style="font-size: 20px"></ion-icon>
+                  <span style="font-size: 1.1rem"
+                    >webgrosolutions@gmail.com</span
+                  >
+                </button>
+              </div>
             </div>
           </div>
 
           <style>
-            .blog-card:hover {
-              transform: translateY(-5px);
-              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+            /* Animations */
+            @keyframes fadeInUp {
+              from {
+                opacity: 0;
+                transform: translateY(20px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
             }
 
-            .blog-card:hover img {
-              transform: scale(1.05);
+            /* Card hover effects */
+            .pricing-card:hover {
+              transform: translateY(-10px) !important;
+              box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12) !important;
             }
 
-            .blog-card:hover h3 a {
-              color: #6366f1;
+            .pricing-card:nth-child(1):hover {
+              border-color: rgba(99, 102, 241, 0.3) !important;
             }
 
-            a:hover {
-              opacity: 0.9;
+            .pricing-card:nth-child(2):hover {
+              border-color: rgba(16, 185, 129, 0.3) !important;
+            }
+
+            .pricing-card:nth-child(3):hover {
+              border-color: rgba(245, 158, 11, 0.3) !important;
+            }
+
+            .pricing-card:nth-child(4):hover {
+              border-color: rgba(236, 72, 153, 0.3) !important;
+            }
+
+            button:hover {
+              transform: translateY(-3px) !important;
+              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 1200px) {
+              .pricing-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 25px !important;
+              }
             }
 
             @media (max-width: 768px) {
-              .blog-grid {
-                grid-template-columns: 1fr;
+              .pricing-grid {
+                grid-template-columns: 1fr !important;
+                max-width: 500px;
+                margin: 0 auto !important;
               }
 
               .section-title {
-                font-size: 1.8rem !important;
+                font-size: 2.2rem !important;
+              }
+
+              .pricing-cta div {
+                flex-direction: column;
+                gap: 15px !important;
               }
             }
           </style>
